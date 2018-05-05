@@ -1,6 +1,11 @@
 from flask import Flask
+from flask import jsonify
 import json
 import random
+import requests
+import requests_toolbelt.adapters.appengine
+
+requests_toolbelt.adapters.appengine.monkeypatch()
 
 app = Flask(__name__)
 word_list = json.load(open('data/words.json'))
@@ -12,6 +17,11 @@ for word in word_list:
 def hello():
     return "Hello World!"
 
-@app.route("/get_random_word")
+@app.route("/getRandomWord")
 def get_random_word():
-    return random.choice(word_dict.values())
+    return get_word_by_id(random.choice(word_dict.keys()))
+
+@app.route('/getWordByID/<int:id>')
+def get_word_by_id(id):
+    resp = requests.get('http://www.acessibilidadebrasil.org.br/libras_3/ajax/getWordById/' + str(id))
+    return (resp.content, resp.status_code, resp.headers.items())
