@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: web
+---
+testFramework: spek
+sourceLanguage: kotlin
