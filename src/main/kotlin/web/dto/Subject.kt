@@ -21,5 +21,12 @@ enum class Subject {
     PROFISSAO_TRABALHO,
     SENTIMENTOS,
     TRANSPORTE_VEICULO,
-    VESTUARIO_COMPLEMENTOS
+    VESTUARIO_COMPLEMENTOS;
+
+    companion object {
+        fun getRandomSubject(): Subject {
+            return values()[(0 until values().size).random()]
+        }
+    }
+
 }

@@ -1,18 +1,16 @@
-package web.mockdao
+package web.service
 
-import io.micronaut.context.annotation.Bean
-import web.database.WordDao
 import web.dto.Subject
 import web.dto.Word
 import javax.inject.Singleton
 
 @Singleton
-class WordDaoImpl : WordDao{
+class WordServiceMockImpl : WordService{
     override fun getRandomWords(amount: Int): List<Word> {
         return (1..amount).map {
             Word("Word $it",
                     "Test acception $it",
-                    Subject.ALIMENTO_BEBIDA,
+                    Subject.getRandomSubject(),
                     "/static/video$it.mp4")
         }
 
