@@ -72,8 +72,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.micronaut:micronaut-graal:1.0.5" level="project" />
     <orderEntry type="library" name="Gradle: io.micronaut:micronaut-router:1.0.5" level="project" />
     <orderEntry type="library" name="Gradle: io.micronaut:micronaut-http:1.0.5" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: io.micronaut:micronaut-aop:1.0.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: io.micronaut:micronaut-inject:1.0.5" level="project" />
     <orderEntry type="library" name="Gradle: io.micronaut:micronaut-core:1.0.5" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
@@ -103,16 +103,16 @@
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" name="Gradle: io.netty:netty-buffer:4.1.30.Final" level="project" />
     <orderEntry type="library" name="Gradle: io.netty:netty-resolver:4.1.30.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.truffle:truffle-api:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:svm-hosted-native-darwin-amd64:tar.gz:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:svm:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.compiler:compiler:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.sdk:graal-sdk:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:objectfile:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.truffle:truffle-nfi-native-linux-amd64:tar.gz:1.0.0-rc8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:pointsto:1.0.0-rc8" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:svm-hosted-native-linux-amd64:tar.gz:1.0.0-rc8" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.truffle:truffle-nfi-native-darwin-amd64:tar.gz:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:pointsto:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.truffle:truffle-nfi-native-linux-amd64:tar.gz:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:objectfile:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.sdk:graal-sdk:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.compiler:compiler:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:svm:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.oracle.substratevm:svm-hosted-native-darwin-amd64:tar.gz:1.0.0-rc8" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.truffle:truffle-nfi:1.0.0-rc8" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.graalvm.truffle:truffle-api:1.0.0-rc8" level="project" />
   </component>
 </module>

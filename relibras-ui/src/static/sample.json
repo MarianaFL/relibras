@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Word 1",
+        "acception": "Test acception 1",
+        "subject": "CORPO",
+        "videoPath": "/static/video1.mp4"
+    },
+    {
+        "name": "Word 2",
+        "acception": "Test acception 2",
+        "subject": "NENHUM",
+        "videoPath": "/static/video2.mp4"
+    },
+    {
+        "name": "Word 3",
+        "acception": "Test acception 3",
+        "subject": "ALIMENTO_BEBIDA",
+        "videoPath": "/static/video3.mp4"
+    },
+    {
+        "name": "Word 4",
+        "acception": "Test acception 4",
+        "subject": "FAMILIA",
+        "videoPath": "/static/video4.mp4"
+    },
+    {
+        "name": "Word 5",
+        "acception": "Test acception 5",
+        "subject": "NENHUM",
+        "videoPath": "/static/video5.mp4"
+    }
+]
