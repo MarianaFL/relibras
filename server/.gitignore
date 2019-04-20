@@ -102,5 +102,5 @@ typings/
 .DS_Store
 node_modules/
 dist/
-server/public
+public
 allwords_data.json

@@ -1,9 +1,0 @@
-micronaut:
-    application:
-        name: relibras
-    router:
-        static-resources:
-                videos:
-                    enabled: true
-                    mapping: /static/**
-                    paths: classpath:public

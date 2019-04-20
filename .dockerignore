@@ -1,0 +1,16 @@
+client/node_modules
+client/dist
+server/node_modules
+server/dist
+server/public
+server/src/static
+
+npm-debug.log
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+README.md
+LICENSE
+.vscode

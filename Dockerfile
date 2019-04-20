@@ -1,30 +1,25 @@
-FROM gradle:jdk8 as builder
-COPY --chown=gradle:gradle . /home/gradle/relibras
-WORKDIR /home/gradle/relibras
-RUN ./gradlew build
+FROM node:lts-alpine as builder
 
-FROM oracle/graalvm-ce:1.0.0-rc14 as graalvm
-COPY --from=builder /home/gradle/relibras/ /home/gradle/relibras/
-WORKDIR /home/gradle/relibras
-RUN java -cp build/libs/*-all.jar \
-            io.micronaut.graal.reflect.GraalClassLoadingAnalyzer \
-            reflect.json
-RUN native-image --no-server \
-                 --class-path /home/gradle/relibras/build/libs/*-all.jar \
-                 -H:ReflectionConfigurationFiles=/home/gradle/relibras/reflect.json \
-                 -H:EnableURLProtocols=http \
-                 -H:IncludeResources='logback.xml|application.yml|META-INF/services/*.*' \
-                 -H:+ReportUnsupportedElementsAtRuntime \
-                 -H:+AllowVMInspection \
-                 --rerun-class-initialization-at-runtime='sun.security.jca.JCAUtil$CachedSecureRandomHolder',javax.net.ssl.SSLContext \
-                 --delay-class-initialization-to-runtime=io.netty.handler.codec.http.HttpObjectEncoder,io.netty.handler.codec.http.websocketx.WebSocket00FrameEncoder,io.netty.handler.ssl.util.ThreadLocalInsecureRandom \
-                 -H:-UseServiceLoaderFeature \
-                 --allow-incomplete-classpath \
-                 -H:Name=relibras \
-                 -H:Class=web.Application
+WORKDIR /build
+COPY server/package*.json ./server/
+COPY client/package*.json ./client/
 
+RUN npm --prefix ./server install ./server
+RUN npm --prefix ./client install ./client
 
-FROM frolvlad/alpine-glibc
-EXPOSE 8080
-COPY --from=graalvm /home/gradle/relibras/relibras .
-ENTRYPOINT ["./relibras"]
+COPY . .
+
+RUN npm run --prefix ./server build
+RUN npm run --prefix ./client build
+
+RUN cd ./server && npm prune --production
+
+FROM node:lts-alpine
+
+COPY --from=builder /build/server/dist/ /dist
+COPY --from=builder /build/client/dist/ /public
+COPY --from=builder /build/server/node_modules /node_modules
+
+EXPOSE 9000
+
+ENTRYPOINT [ "node" , "/dist/main.js"]
