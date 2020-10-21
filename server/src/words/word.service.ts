@@ -12,7 +12,7 @@ export class WordService {
   allWords: Word[];
   private readonly logger = new Logger(WordService.name);
 
-  @Inject()
+  // TODO why was there an @Inject() here?
   private readonly httpService: HttpService;
 
   private getJsonFromCDN() {

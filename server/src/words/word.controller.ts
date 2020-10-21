@@ -2,10 +2,6 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { WordService } from './word.service';
 import { Word } from './interfaces/word.interface';
 
-interface WordDefinition {
-  [key: string]: string;
-}
-
 @Controller('words')
 export class WordController {
   constructor(private readonly wordService: WordService) {}
