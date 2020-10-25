@@ -4,7 +4,7 @@ import { Word } from './interfaces/word.interface';
 
 @Controller('words')
 export class WordController {
-  constructor(private readonly wordService: WordService) {}
+  constructor(private readonly wordService: WordService) { }
 
   @Get('/random/:amount')
   async random(@Param('amount') amount?: number): Promise<Word[]> {
