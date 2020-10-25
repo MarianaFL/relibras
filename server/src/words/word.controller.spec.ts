@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { HttpService } from '@nestjs/common';
 
 import { WordController } from './word.controller';
 import { WordService } from './word.service';
+import { WordProviderCDN } from './word.provider.cdn';
 
 describe('Words Controller', () => {
   let controller: WordController;
@@ -11,7 +11,7 @@ describe('Words Controller', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [WordController],
-      providers: [WordService],
+      providers: [WordService, WordProviderCDN],
     }).compile();
 
     controller = module.get<WordController>(WordController);
@@ -55,7 +55,7 @@ describe('Words Controller', () => {
         origem: "nacional",
         mao: "cg02.jpg"
       }];
-      jest.spyOn(service, 'getRandomWords').mockImplementation(() => result);
+      jest.spyOn(service, 'getRandomWords').mockImplementation(() => new Promise(() => result));
 
       controller.random(2).then(data => expect(data).toBe(result))
     })
@@ -76,7 +76,7 @@ describe('Words Controller', () => {
         origem: "nacional",
         mao: "cg02.jpg"
       }];
-      jest.spyOn(service, 'getRandomWords').mockImplementation(() => result);
+      jest.spyOn(service, 'getRandomWords').mockImplementation(() => new Promise(() => result));
 
       controller.random().then(data => expect(data).toBe(result))
     })
@@ -99,7 +99,7 @@ describe('Words Controller', () => {
         origem: "nacional",
         mao: "cg02.jpg"
       }];
-      jest.spyOn(service, 'getRandomWords').mockImplementation(() => result);
+      jest.spyOn(service, 'getRandomWords').mockImplementation(() => new Promise(() => result));
 
       controller.randomOne().then(data => expect(data).toBe(result))
     })
